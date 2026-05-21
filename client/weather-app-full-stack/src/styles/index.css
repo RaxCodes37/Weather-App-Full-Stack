@@ -1,1 +1,10 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+body{
+  background-color: #182825;
+}
+
+.navbar {
+  padding: 16px;
+  background-color: #9CA3DB;
+}
