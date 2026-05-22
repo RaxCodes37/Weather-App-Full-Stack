@@ -36,10 +36,10 @@ export const App = () => {
       <Navbar user={user} setUser={setUser}></Navbar>
 
       <Routes>
-        <Route path='/home' element={<Home error={error} user={user}/>}></Route>
+        <Route path='/' element={<Home error={error} user={user}/>}></Route>
         <Route path='/login' element={<Login setUser={setUser}/>}></Route>
         <Route path='/register' element={<Register setUser={setUser}/>}></Route>
-        <Route path='*' element={<Navigate to='/home'/>}></Route>
+        <Route path='*' element={<Navigate to='/'/>}></Route>
       </Routes>
     </Router>  
   )

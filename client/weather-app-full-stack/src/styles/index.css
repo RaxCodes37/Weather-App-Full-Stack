@@ -2,9 +2,23 @@
 
 body{
   background-color: #182825;
+  color: #B8D4E3;
 }
 
 .navbar {
   padding: 16px;
   background-color: #9CA3DB;
+  color: black;
+}
+
+.container{
+  border: 3px solid #B8D4E3;
+  background-color: #92b2c3;
+  color: #182825;
+  display: block;
+}
+
+h2{
+  font-size: 1.7rem;
+  font-weight: 600;
 }

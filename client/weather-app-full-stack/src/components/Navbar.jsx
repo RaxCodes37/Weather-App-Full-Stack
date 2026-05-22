@@ -9,10 +9,10 @@ export const Navbar = ({ user, setUser }) => {
   const LogoutFunction = async() => {
     try {
       await axios.post("http://localhost:5000/api/auth/logout");
-      setUser(null);
+      setUser(null)
       navigate("/home")
     } catch (error) {
-      res.status(500).json({ error })
+      res.status(400).json({ error })
     }
   }
 
@@ -23,12 +23,12 @@ export const Navbar = ({ user, setUser }) => {
           <div className="navbar border rounded-b-lg flex justify-center text-2xl">
             <div className="flex justify-between w-75">
               <Link to="/home" className="text-center">
-                <i class="fa-solid fa-house"></i>
+                <i className="fa-solid fa-house"></i>
                 <p className="text-[12px]">Home</p>
               </Link>
 
               <button className="hover:cursor-pointer" onClick={LogoutFunction}>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
                 <p className="text-[12px]">Log-out</p>
               </button>
             </div>
@@ -37,12 +37,12 @@ export const Navbar = ({ user, setUser }) => {
           <div className="navbar border rounded-b-lg flex justify-center text-2xl">
             <div className="flex justify-between w-100">
               <Link to="/home" className="text-center">
-                <i class="fa-solid fa-house"></i>
+                <i className="fa-solid fa-house"></i>
                 <p className="text-[12px]">Home</p>
               </Link>
 
               <Link to="/login" className="text-center">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <i className="fa-solid fa-arrow-right-to-bracket"></i>
                 <p className="text-[12px]">Login</p>
               </Link>
 
