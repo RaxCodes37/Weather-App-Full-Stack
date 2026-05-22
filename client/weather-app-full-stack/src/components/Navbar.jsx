@@ -38,23 +38,22 @@ export const Navbar = ({ user, setUser }) => {
             <div className="flex justify-between w-100">
               <Link to="/home" className="text-center">
                 <i className="fa-solid fa-house"></i>
-                <p className="text-[12px]">Home</p>
+                <p className="text-[12px] link">Home</p>
               </Link>
 
               <Link to="/login" className="text-center">
                 <i className="fa-solid fa-arrow-right-to-bracket"></i>
-                <p className="text-[12px]">Login</p>
+                <p className="text-[12px] link">Login</p>
               </Link>
 
               <Link to="/register" className="justify-center">
                 <img src={signUp} alt="sign-up" className="h-8 relative left-2"/>
-                <p className="text-[12px]">Sign-Up</p>
+                <p className="text-[12px] link">Sign-Up</p>
               </Link>
             </div>
           </div>    
         )
       }
-      
     </>
   );
 };

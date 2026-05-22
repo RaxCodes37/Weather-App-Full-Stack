@@ -22,3 +22,11 @@ h2{
   font-size: 1.7rem;
   font-weight: 600;
 }
+
+.link{
+  transition: 0.3s;
+}
+
+.link:hover{
+  color: #855A5C;
+}
