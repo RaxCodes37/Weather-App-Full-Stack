@@ -24,12 +24,12 @@ export const Navbar = ({ user, setUser }) => {
             <div className="flex justify-between w-75">
               <Link to="/home" className="text-center">
                 <i className="fa-solid fa-house"></i>
-                <p className="text-[12px]">Home</p>
+                <p className="text-[12px] link">Home</p>
               </Link>
 
               <button className="hover:cursor-pointer" onClick={LogoutFunction}>
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>
-                <p className="text-[12px]">Log-out</p>
+                <p className="text-[12px] link">Log-out</p>
               </button>
             </div>
           </div>    
