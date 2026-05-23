@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", authRoutes)
 
-app.post("/weather", protect, async (req, res) => {
+app.post("/save-location", protect, async (req, res) => {
   try {
     const { location_name } = req.body;
 
@@ -27,7 +27,7 @@ app.post("/weather", protect, async (req, res) => {
 
     res.status(201).json(newSavedLocation.rows[0]);
   } catch (err) {
-    res.json({err})
+    res.status(500).json({ message: err.message })
   }
 })
 

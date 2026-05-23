@@ -8,6 +8,7 @@ body{
 .navbar {
   padding: 16px;
   background-color: #9CA3DB;
+  border: 2px solid #686d95;
   color: black;
 }
 
@@ -30,3 +31,4 @@ h2{
 .link:hover{
   color: #855A5C;
 }
+
