@@ -22,9 +22,14 @@ export const Navbar = ({ user, setUser }) => {
         user ? (
           <div className="navbar border rounded-b-lg flex justify-center text-2xl">
             <div className="flex justify-between w-75">
-              <Link to="/home" className="text-center">
+              <Link to="/" className="text-center">
                 <i className="fa-solid fa-house"></i>
                 <p className="text-[12px] link">Home</p>
+              </Link>
+
+              <Link to="/saved-locations" className="text-center">
+                <i className="fa-solid fa-bookmark"></i>
+                <p className="text-[12px] link">Saved-Locations</p>
               </Link>
 
               <button className="hover:cursor-pointer" onClick={LogoutFunction}>

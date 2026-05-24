@@ -24,8 +24,8 @@ export const Login = ({ setUser }) => {
 
   return (
     <>
-      <div className="w-screen h-[80vh] flex justify-center items-center">
-        <form className="container border rounded-md w-100 h-50 text-center" onSubmit={LoginFunction}>
+      <div className="w-screen h-[80vh] flex justify-center">
+        <form className="container border rounded-md w-100 h-50 text-center mt-20" onSubmit={LoginFunction}>
           <h2 className="mt-5">Log-in</h2>
           <div className="text-center mt-5">
             <input

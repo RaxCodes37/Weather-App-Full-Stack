@@ -34,6 +34,8 @@ app.post("/save-location", protect, async (req, res) => {
 app.get("/saved-locations", protect, async (req, res) => {
   try {
     const showSavedLocations = await pool.query("SELECT * FROM saved_locations WHERE user_id = $1", [req.user.user_id]);
+
+    res.status(201).json({message: showSavedLocations})
   } catch (err) {
     res.status(500).json({message: "Error on our end"})
   }

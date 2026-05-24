@@ -88,7 +88,7 @@ export const Home = ({ error, user }) => {
                 </button>
               </div>
             ) : (
-              <div className="mt-20 container rounded-md p-4">
+              <div className="mt-10 container rounded-md p-4">
                 <h2>Start Searching!!</h2>
               </div>
             )}
@@ -127,7 +127,7 @@ export const Home = ({ error, user }) => {
                 {locationInfo.min_temp}
               </div>
             ) : (
-              <div className="mt-20 container rounded-md p-4">
+              <div className="mt-10 container rounded-md p-4">
                 <h2>Start Searching!!</h2>
               </div>
             )}

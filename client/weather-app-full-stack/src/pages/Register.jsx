@@ -27,8 +27,8 @@ export const Register = ({ setUser }) => {
   
   return (
     <>
-      <div className="w-screen h-[80vh] flex justify-center items-center">
-        <form className="container border rounded-md w-100 h-60 text-center" onSubmit={LoginFunction}>
+      <div className="w-screen h-[80vh] flex justify-center">
+        <form className="container border rounded-md w-100 h-60 text-center mt-20" onSubmit={LoginFunction}>
           <h2 className="mt-5">Sign-Up</h2>
 
           <div className="text-center mt-5">

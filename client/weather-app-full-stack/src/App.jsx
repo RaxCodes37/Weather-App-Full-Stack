@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar'
 import { Login } from './pages/Login'
 import { Home } from './pages/Home'
 import { Register } from './pages/Register'
+import { SavedLocations } from './pages/SavedLocations'
 
 axios.defaults.withCredentials = true;
 
@@ -37,6 +38,7 @@ export const App = () => {
 
       <Routes>
         <Route path='/' element={<Home error={error} user={user}/>}></Route>
+        <Route path='/saved-locations' element={<SavedLocations user={user}/>}></Route>
         <Route path='/login' element={<Login setUser={setUser}/>}></Route>
         <Route path='/register' element={<Register setUser={setUser}/>}></Route>
         <Route path='*' element={<Navigate to='/'/>}></Route>
