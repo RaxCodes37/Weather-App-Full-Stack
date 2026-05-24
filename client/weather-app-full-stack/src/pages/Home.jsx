@@ -7,6 +7,7 @@ export const Home = ({ error, user }) => {
   const api_key = import.meta.env.VITE_WEATHER_API_KEY;
   const [locationInfo, setLocationInfo] = useState({
     name: "",
+    country: "",
     description: "",
     feels_temp: "",
     temp: "",
@@ -27,12 +28,14 @@ export const Home = ({ error, user }) => {
       setLocationInfo({
         ...locationInfo,
         name: `${data.name}`,
+        country: `${data.sys.country}`,
         description: `${data.weather[0].description}`,
         feels_temp: `${Math.round(data.main.feels_like)}C°`,
         temp: `${Math.round(data.main.temp)}C°`,
         max_temp: `${Math.round(data.main.temp_max)}C°`,
         min_temp: `${Math.round(data.main.temp_min)}C°`,
       });
+      
     } catch (error) {
       console.error(error.response?.data)
     }
@@ -41,7 +44,7 @@ export const Home = ({ error, user }) => {
   const addFavoriteLocation = async(e) => {
     e.preventDefault();
     try {
-      const body = {location_name: locationName}
+      const body = {location_name: locationName, location_country: locationInfo.country}
       const res = await axios.post("http://localhost:5000/save-location", body);
       console.log(res)
     } catch (error) {
@@ -70,6 +73,9 @@ export const Home = ({ error, user }) => {
                     }}
                     className="border rounded-md p-0.5"
                   />
+                  <button onClick={getLocation} className="search-button rounded-md">
+                    <i className="fa-solid fa-arrow-up"></i>
+                  </button>
                 </div>
               </form>
             </div>
@@ -77,6 +83,7 @@ export const Home = ({ error, user }) => {
             {checkSearch ? (
               <div className="container rounded-md h-80 mt-20 ">
                 {locationInfo.name}
+                {locationInfo.country}
                 {locationInfo.description}
                 {locationInfo.feels_temp}
                 {locationInfo.temp}
@@ -84,7 +91,7 @@ export const Home = ({ error, user }) => {
                 {locationInfo.min_temp}
 
                 <button onClick={addFavoriteLocation}>
-                  <i className="fa-solid fa-arrow-up"></i>
+                  <i className="fa-solid fa-bookmark"></i>
                 </button>
               </div>
             ) : (
@@ -113,6 +120,9 @@ export const Home = ({ error, user }) => {
                     }}
                     className="border rounded-md p-0.5"
                   />
+                  <button onClick={getLocation} className="search-button rounded-md">
+                    <i className="fa-solid fa-arrow-up"></i>
+                  </button>
                 </div>
               </form>
             </div>

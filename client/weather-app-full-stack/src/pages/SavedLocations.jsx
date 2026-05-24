@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "../styles/index.css"
 
 export const SavedLocations = ({ user }) => {
   const [locations, setLocations] = useState([]);
@@ -32,8 +33,12 @@ export const SavedLocations = ({ user }) => {
           <div className="container rounded-md min-h-40 w-100 mt-20 text-center">
             <h2 className="underline">Saved Locations</h2>
             {locations.map((location) => (
-              <div>
+              <div className="my-2 mb-4 flex justify-center items-center gap-2" key={location.location_id}>
                 {location.location_name}
+
+                <button className="search-button rounded-md">
+                  Check Weather
+                </button>
               </div>
             ))}
           </div>
