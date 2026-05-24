@@ -21,9 +21,9 @@ app.use("/api/auth", authRoutes)
 
 app.post("/save-location", protect, async (req, res) => {
   try {
-    const { location_name } = req.body;
+    const { location_name, location_country } = req.body;
 
-    const newSavedLocation = await pool.query("INSERT INTO saved_locations(location_name, user_id) VALUES ($1, $2) RETURNING *", [location_name, req.user.user_id]);
+    const newSavedLocation = await pool.query("INSERT INTO saved_locations(location_name, location_country, user_id) VALUES ($1, $2, $3) RETURNING *", [location_name, location_country, req.user.user_id]);
 
     res.status(201).json(newSavedLocation.rows[0]);
   } catch (err) {
