@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 export const Login = ({ setUser }) => {
@@ -25,7 +25,7 @@ export const Login = ({ setUser }) => {
   return (
     <>
       <div className="w-screen h-[80vh] flex justify-center">
-        <form className="container border rounded-md w-100 h-50 text-center mt-20" onSubmit={LoginFunction}>
+        <form className="container border rounded-md w-100 h-54 text-center mt-20" onSubmit={LoginFunction}>
           <h2 className="mt-5">Log-in</h2>
           <div className="text-center mt-5">
             <input
@@ -55,7 +55,10 @@ export const Login = ({ setUser }) => {
               <i className="fa-solid fa-arrow-right"></i>
             </button>
           </div>
-        </form>
+          
+          <p className="mt-5">If you don't have an account please <Link to="/register" className="underline">Sign-Up</Link></p>
+
+        </form> 
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 export const Register = ({ setUser }) => {
@@ -28,7 +28,7 @@ export const Register = ({ setUser }) => {
   return (
     <>
       <div className="w-screen h-[80vh] flex justify-center">
-        <form className="container border rounded-md w-100 h-60 text-center mt-20" onSubmit={LoginFunction}>
+        <form className="container border rounded-md w-100 h-64 text-center mt-20" onSubmit={LoginFunction}>
           <h2 className="mt-5">Sign-Up</h2>
 
           <div className="text-center mt-5">
@@ -72,6 +72,7 @@ export const Register = ({ setUser }) => {
               <i className="fa-solid fa-arrow-right"></i>
             </button>
           </div>
+          <p className="mt-5">If you don't have an account please <Link to="/login" className="underline">Log-In</Link></p>
         </form>
       </div>
     </>
