@@ -20,10 +20,9 @@ export const Home = ({ error, user }) => {
     e.preventDefault();
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${locationName}&appid=${api_key}&units=metric`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${locationName}&appid=${api_key}&units=metric`
       );
       const data = await res.json();
-      console.log(data);
       setCheckSearch(true);
       setLocationInfo({
         ...locationInfo,
@@ -46,7 +45,6 @@ export const Home = ({ error, user }) => {
     try {
       const body = {location_name: locationName, location_country: locationInfo.country}
       const res = await axios.post("http://localhost:5000/save-location", body);
-      console.log(res)
     } catch (error) {
       console.error(error.response?.data)
     }
@@ -81,7 +79,7 @@ export const Home = ({ error, user }) => {
             </div>
 
             {checkSearch ? (
-              <div className="container rounded-md h-80 mt-20 ">
+              <div className="container rounded-md h-80 mt-10">
                 {locationInfo.name}
                 {locationInfo.country}
                 {locationInfo.description}
@@ -128,7 +126,7 @@ export const Home = ({ error, user }) => {
             </div>
 
             {checkSearch ? (
-              <div className="container rounded-md h-80 mt-20 ">
+              <div className="container rounded-md h-80 mt-10">
                 {locationInfo.name}
                 {locationInfo.description}
                 {locationInfo.feels_temp}
