@@ -41,6 +41,16 @@ app.get("/saved-locations", protect, async (req, res) => {
   }
 })
 
+app.delete("/delete/:location_id", protect, async (req, res) => {
+  try {
+    const { location_id } = req.params
+
+    await pool.query("DELETE FROM saved_locations WHERE location_id = $1", [location_id])
+  } catch (error) {
+    res.status(500).json({message: "Error on our end"})
+  }
+})
+
 app.listen(5000, (req, res) => {
   console.log("works")
 })

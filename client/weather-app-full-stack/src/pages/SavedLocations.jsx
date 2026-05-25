@@ -9,6 +9,7 @@ export const SavedLocations = ({ user }) => {
   const [loading, setLoading] = useState(true);
   const api_key = import.meta.env.VITE_WEATHER_API_KEY;
   const [locationInfo, setLocationInfo] = useState({
+    id: "",
     name: "",
     country: "",
     description: "",
@@ -48,6 +49,7 @@ export const SavedLocations = ({ user }) => {
       setCheckSearch(true);
       setLocationInfo({
         ...locationInfo,
+        id: `${location.location_id}`,
         name: `${data.name}`,
         country: `${data.sys.country}`,
         description: `${data.weather[0].description}`,
@@ -60,6 +62,14 @@ export const SavedLocations = ({ user }) => {
       console.error(error.response?.data);
     }
   };
+
+  const deleteSavedLocation = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/delete/${id}`);
+    } catch (error) {
+      console.error(error.response?.data);
+    }
+  }
 
   return (
     <>
@@ -95,6 +105,10 @@ export const SavedLocations = ({ user }) => {
                     </h2>
                     <i className="fa-solid fa-location-dot text-xl"></i>
                   </div>
+
+                  <button onClick={() => deleteSavedLocation(locationInfo.id)}>
+                    <i className="fa-solid fa-trash text-2xl"></i>
+                  </button>
                 </div>
                 <div className="text-center">
                   <p>{locationInfo.description}</p>
