@@ -72,7 +72,7 @@ export const Register = ({ setUser }) => {
               <i className="fa-solid fa-arrow-right"></i>
             </button>
           </div>
-          <p className="mt-5">If you don't have an account please <Link to="/login" className="underline">Log-In</Link></p>
+          <p className="mt-5">If you already have an account please <Link to="/login" className="underline">Log-In</Link></p>
         </form>
       </div>
     </>
