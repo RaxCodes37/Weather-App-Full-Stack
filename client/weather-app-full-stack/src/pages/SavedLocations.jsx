@@ -44,7 +44,7 @@ export const SavedLocations = ({ user }) => {
         `https://api.openweathermap.org/data/2.5/weather?q=${location.location_name}&appid=${api_key}&units=metric`,
       );
       const data = await res.json();
-      
+
       setCheckSearch(true);
       setLocationInfo({
         ...locationInfo,
@@ -63,62 +63,89 @@ export const SavedLocations = ({ user }) => {
 
   return (
     <>
-      {user ? (
-        <div className="grid justify-center">
-          <div className="container rounded-md min-h-20 w-100 mt-20 text-center">
-            <h2 className="underline">Saved Locations</h2>
-            {locations.map((location) => (
-              <div
-                className="my-2 mb-4 flex justify-center items-center gap-2"
-                key={location.location_id}
-              >
-                <p>
-                  {location.location_name}, {location.location_country}
-                </p>
-
-                <button
-                  className="search-button rounded-md"
-                  onClick={() => getLocation(location)}
+      <div className="h-[105vh]">
+        {user ? (
+          <div className="grid justify-center">
+            <div className="container rounded-md min-h-20 w-100 mt-20 text-center">
+              <h2 className="underline">Saved Locations</h2>
+              {locations.map((location) => (
+                <div
+                  className="my-2 mb-4 flex justify-center items-center gap-2"
+                  key={location.location_id}
                 >
-                  Weather
-                </button>
-              </div>
-            ))}
-          </div>
-          { checkSearch ? (
-            <div className="container rounded-md mt-10 text-center">
-              <div className="flex justify-center items-center gap-2">
-                <h2>{locationInfo.name}, {locationInfo.country}</h2>
-                <i className="fa-solid fa-location-dot text-xl"></i>
-              </div>
-              
+                  <p>
+                    {location.location_name}, {location.location_country}
+                  </p>
 
-
+                  <button
+                    className="search-button rounded-md"
+                    onClick={() => getLocation(location)}
+                  >
+                    Weather
+                  </button>
+                </div>
+              ))}
             </div>
-          ) : (
-            <div></div>
-          )}
-          
-        </div>
-      ) : (
-        <div className="flex justify-center">
-          <div className="container rounded-md mt-20 w-100 p-2 text-center">
-            <h2>
-              You shouldn't be <span className="underline">here!!</span> 😡
-            </h2>
+            {checkSearch ? (
+              <div className="container rounded-md min-h-20 mt-10 py-3">
+                <div className="flex justify-center items-center">
+                  <div className="flex items-center justify-center w-[90%] gap-2">
+                    <h2>
+                      {locationInfo.name}, {locationInfo.country}
+                    </h2>
+                    <i className="fa-solid fa-location-dot text-xl"></i>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <p>{locationInfo.description}</p>
+                </div>
+                <hr className="my-2" />
+                <div className="text-center">
+                  <h3>{locationInfo.temp}</h3>
+                  <p>
+                    <span className="opacity-50">
+                      Feels Like: {locationInfo.feels_temp}
+                    </span>
+                  </p>
+                </div>
+                <div className="flex justify-center items-center gap-5">
+                  <p>
+                    <span className="opacity-50">
+                      Max: {locationInfo.max_temp}
+                    </span>
+                  </p>
 
-            <div className="mt-2">
-              <p>Please Login to Save Locations</p>
-              <p>
-                Go back{" "}
-                <Link to="/" className="underline">
-                  Home
-                </Link>
-              </p>
+                  <p>
+                    <span className="opacity-50">
+                      Min: {locationInfo.min_temp}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div></div>
+            )}
+          </div>
+        ) : (
+          <div className="flex justify-center">
+            <div className="container rounded-md mt-20 w-100 p-2 text-center">
+              <h2>
+                You shouldn't be <span className="underline">here!!</span> 😡
+              </h2>
+
+              <div className="mt-2">
+                <p>Please Login to Save Locations</p>
+                <p>
+                  Go back{" "}
+                  <Link to="/" className="underline">
+                    Home
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };

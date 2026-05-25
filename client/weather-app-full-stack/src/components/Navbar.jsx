@@ -29,7 +29,7 @@ export const Navbar = ({ user, setUser }) => {
 
               <Link to="/saved-locations" className="text-center">
                 <i className="fa-solid fa-bookmark"></i>
-                <p className="text-[12px] link">Saved-Locations</p>
+                <p className="text-[12px] link">Saved Locations</p>
               </Link>
 
               <button className="hover:cursor-pointer" onClick={LogoutFunction}>
